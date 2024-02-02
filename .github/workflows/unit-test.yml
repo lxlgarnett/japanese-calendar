@@ -1,0 +1,29 @@
+name: Java CI with maven
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Test with maven
+        run: mvn verify
+
+      - name: Add coverage to PR comment
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
+        with:
+          paths: ${{ github.workspace }}/target/jacoco-report/jacoco.xml
+          token: ${{ secrets.TOKEN }}
+          min-coverage-overall: 80
+          min-coverage-changed-files: 80
