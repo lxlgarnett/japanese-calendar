@@ -17,8 +17,7 @@ public class MonthValueConverter implements CommandLine.ITypeConverter<Integer> 
     if (month < 1 || month > 12) {
       Log.warn(
           String.format("Value %s is not valid. Month value must between 1 to 12.", monthValue));
-      throw new CommandLine.ParameterException(
-          new CommandLine(this), "Month value must between 1 to 12.");
+      throw new CommandLine.TypeConversionException("Month value must between 1 to 12.");
     }
     return month;
   }
