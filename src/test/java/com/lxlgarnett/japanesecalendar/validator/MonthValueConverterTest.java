@@ -9,7 +9,7 @@ import picocli.CommandLine;
 /**
  * This is a test class for MonthValueConverter class.
  *
- * @author lxlgarnett
+ * @author xiaolei
  */
 @QuarkusTest
 class MonthValueConverterTest {
@@ -24,7 +24,8 @@ class MonthValueConverterTest {
   @Test
   void convertTestInvalidMonthValueFormat() {
     Assertions.assertThrows(
-        NumberFormatException.class, () -> monthValueConverter.convert("not integer string value"));
+        CommandLine.TypeConversionException.class,
+        () -> monthValueConverter.convert("not integer string value"));
   }
 
   @Test
