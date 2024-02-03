@@ -9,7 +9,7 @@ import picocli.CommandLine;
 /**
  * This is a test class for MonthValueConverter class.
  *
- * @author lxlgarnett
+ * @author xiaolei
  */
 @QuarkusTest
 class MonthValueConverterTest {

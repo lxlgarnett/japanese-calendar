@@ -6,7 +6,7 @@ import picocli.CommandLine;
 /**
  * This is a converter class to covert a string value to month value.
  *
- * @author lxlgarnett
+ * @author xiaolei
  */
 public class MonthValueConverter implements CommandLine.ITypeConverter<Integer> {
 
