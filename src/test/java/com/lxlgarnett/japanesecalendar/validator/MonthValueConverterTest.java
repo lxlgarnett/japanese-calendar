@@ -24,7 +24,8 @@ class MonthValueConverterTest {
   @Test
   void convertTestInvalidMonthValueFormat() {
     Assertions.assertThrows(
-        NumberFormatException.class, () -> monthValueConverter.convert("not integer string value"));
+        CommandLine.TypeConversionException.class,
+        () -> monthValueConverter.convert("not integer string value"));
   }
 
   @Test
