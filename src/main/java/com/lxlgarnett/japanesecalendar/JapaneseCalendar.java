@@ -30,5 +30,19 @@ public class JapaneseCalendar implements Runnable {
   public void run() {
     Log.info(year);
     Log.info(month);
+
+    System.out.printf(
+        "            %s  %d             %n", LocalDate.of(year, month, 1).getMonth(), year);
+    System.out.println("SUN MON TUE WED THU FIR SAT");
+    /*
+    Foreground color
+    \u001B[31m -- Red
+    \u001B[34m -- Blue
+
+    Background color
+    \u001B[47m -- White
+     */
+    System.out.println("\u001B[31m01\u001B[0m 02 03 04 05 06 \u001B[47m\u001B[30m07\u001B[0m");
+    System.out.println(month);
   }
 }
