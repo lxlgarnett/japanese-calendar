@@ -25,10 +25,11 @@ public class JapaneseCalendar {
 
   /**
    * Is the given date is Sunday or not.
+   *
    * @param year Year of the given date
    * @param month Month of the given date
    * @param day Day of the given date
-   * @return true: Sunday false: Others
+   * @return true: The given date is Sunday false: The given date is not Sunday
    */
   public boolean isSunday(int year, int month, int day) {
     Calendar calendar = Calendar.getInstance();
@@ -37,5 +38,22 @@ public class JapaneseCalendar {
     calendar.set(Calendar.DATE, day);
 
     return calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY;
+  }
+
+  /**
+   * Is the given date is Saturday or not.
+   *
+   * @param year Year of the given date
+   * @param month Month of the given date
+   * @param day Day of the given date
+   * @return true: The given date is Saturday false: The given date is not Saturday
+   */
+  public boolean isSaturday(int year, int month, int day) {
+    Calendar calendar = Calendar.getInstance();
+    calendar.set(Calendar.YEAR, year);
+    calendar.set(Calendar.MONTH, month - 1);
+    calendar.set(Calendar.DATE, day);
+
+    return calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY;
   }
 }
